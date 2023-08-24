@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.designwright.research.microserviceplatform</groupId>
+        <artifactId>parent-pom</artifactId>
+        <version>1-SNAPSHOT</version>
+        <relativePath>../../parent-pom</relativePath>
+    </parent>
+
+    <groupId>com.designwright.research.microserviceplatform.common</groupId>
+    <artifactId>event-utils</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Event Utilities</name>
+    <description>Utilities for microservice event configurations</description>
+
+    <dependencies>
+        <!-- SpringBoot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- DesignWright -->
+        <dependency>
+            <groupId>com.designwright.research.microserviceplatform.common</groupId>
+            <artifactId>service-utils</artifactId>
+        </dependency>
+    </dependencies>
+</project>

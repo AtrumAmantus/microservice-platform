@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  server:
+    port: 8082
+webapi:
+  api-contexts:
+    - context: /api
+      api-versions:
+        - version: v1
+          api-resources:
+            - get: greeting
