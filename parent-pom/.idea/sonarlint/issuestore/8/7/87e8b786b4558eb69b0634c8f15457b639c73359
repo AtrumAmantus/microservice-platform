@@ -1,0 +1,7 @@
+
+p	java:S116""VRename this field "RABBIT_HOST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÊÛ¢üÿÿÿÿ
+p	java:S116$"VRename this field "RABBIT_PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”Ü¾ùøÿÿÿÿ
+k	java:S116&"VRename this field "RABBIT_USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë•í›
+o	java:S116("URename this field "RABBIT_PWD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÿ×ãþÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ŠËö’

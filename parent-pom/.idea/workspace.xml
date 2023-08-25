@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b8733c55-f4a0-425b-8faf-607ef58febeb" name="Default Changelist" comment="wip">
+      <change afterPath="$PROJECT_DIR$/../common/domain-models/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../common/domain-models/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../common/domain-models/src/main/java/com/designwright/research/microserviceplatform/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../common/service-utils/src/main/java/com/designwright/research/microserviceplatform/service/utils/MappingUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/relationaldb-service-parent/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/relationaldb-service-parent/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/UserManagementApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/config/TestDataConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/controller/UserWebController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/data/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/data/respository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/java/com/designwright/research/microserviceplatform/service/usermanagement/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/resources/service-config/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/test/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../service/usermanagement-service-library/src/test/resources/seedData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/service-utils/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../common/service-utils/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="142" />
+    <option name="y" value="23" />
+    <option name="width" value="1673" />
+    <option name="height" value="993" />
+  </component>
+  <component name="ProjectId" id="1ROeTfmwRVt4cEfVp4a6EzBHfcV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../common/domain-models" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../common/domain-models" />
+      <recent name="$PROJECT_DIR$/../service/usermanagement-service-library/src/main/resources/service-config" />
+      <recent name="$PROJECT_DIR$/../service/greeting-service-library/src/main/resources" />
+      <recent name="$PROJECT_DIR$/../service/restapi/src/main/java/com/designwright/research/service/restapi" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../common/" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.designwright.research.microserviceplatform.service.usermanagement.controller" />
+      <recent name="com.designwright.research.common.messagingutils" />
+      <recent name="com.designwright.research.service.usermanagement" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.UserManagementApplication-h2">
+    <configuration name="Greeting-Microservice" type="Application" factoryName="Application">
+      <envs>
+        <env name="LOADER_PATH" value="$PROJECT_DIR$/../../../../java/builds/greeting-service-library/" />
+        <env name="SPRING_CONFIG_ADDITIONAL-LOCATION" value="classpath:service-config/" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.MicroserviceApplication" />
+      <module name="microservice" />
+      <option name="VM_PARAMETERS" value="-jar target/microservice-0.0.1-SNAPSHOT.jar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/microservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GreetingApplication" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.greeting.GreetingApplication" />
+      <module name="greeting-service-library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.designwright.research.service.greeting.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Microservice" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.MicroserviceApplication" />
+      <module name="microservice" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/microservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestApi-Service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.RestApiApplication" />
+      <module name="restapi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/restapi" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserManagement-NOBUILD" type="Application" factoryName="Application">
+      <envs>
+        <env name="LOADER_PATH" value="$PROJECT_DIR$/../../../../java/builds/usermanagement-service-library/" />
+        <env name="SPRING_CONFIG_ADDITIONAL-LOCATION" value="classpath:service-config/" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.MicroserviceApplication" />
+      <module name="microservice" />
+      <option name="VM_PARAMETERS" value="-jar target/microservice-0.0.1-SNAPSHOT.jar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/microservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserManagement-Service H2-Console" type="Application" factoryName="Application">
+      <envs>
+        <env name="LOADER_PATH" value="$PROJECT_DIR$/../../../../java/builds/usermanagement-service-library/" />
+        <env name="SPRING_CONFIG_ADDITIONAL-LOCATION" value="classpath:service-config/" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.MicroserviceApplication" />
+      <module name="microservice" />
+      <option name="VM_PARAMETERS" value="-jar target/microservice-0.0.1-SNAPSHOT.jar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/microservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/../service/microservice/pom.xml" goal="clean package" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/../service/usermanagement-service-library/pom.xml" goal="clean package -P h2-console" />
+      </method>
+    </configuration>
+    <configuration name="UserManagement-Service H2" type="Application" factoryName="Application">
+      <envs>
+        <env name="LOADER_PATH" value="$PROJECT_DIR$/../../../../java/builds/usermanagement-service-library/" />
+        <env name="SPRING_CONFIG_ADDITIONAL-LOCATION" value="classpath:service-config/" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.MicroserviceApplication" />
+      <module name="microservice" />
+      <option name="VM_PARAMETERS" value="-jar target/microservice-0.0.1-SNAPSHOT.jar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/microservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/../service/microservice/pom.xml" goal="clean package" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/../service/usermanagement-service-library/pom.xml" goal="clean package -P h2" />
+      </method>
+    </configuration>
+    <configuration name="UserManagementApplication-h2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.designwright.research.microserviceplatform.service.usermanagement.UserManagementApplication" />
+      <module name="usermanagement-service-library" />
+      <option name="VM_PARAMETERS" value="-Dspring.profiles.active=h2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../service/usermanagement-service-library" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="usermanagement-service-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PluginRemoteDebug" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8000" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8000" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Greeting-Microservice" />
+      <item itemvalue="Application.UserManagement-Service H2" />
+      <item itemvalue="Application.UserManagement-Service H2-Console" />
+      <item itemvalue="Application.UserManagement-NOBUILD" />
+      <item itemvalue="Application.Microservice" />
+      <item itemvalue="Application.UserManagementApplication-h2" />
+      <item itemvalue="Application.RestApi-Service" />
+      <item itemvalue="Application.GreetingApplication" />
+      <item itemvalue="JUnit.Test.test" />
+      <item itemvalue="Remote JVM Debug.PluginRemoteDebug" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GreetingApplication" />
+        <item itemvalue="JUnit.Test.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8733c55-f4a0-425b-8faf-607ef58febeb" name="Default Changelist" comment="" />
+      <created>1569542578348</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569542578348</updated>
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1569543028665</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569543028665</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial commit">
+      <created>1569543077177</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569543077177</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added file to gitignore">
+      <created>1570062200861</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570062200861</updated>
+    </task>
+    <task id="LOCAL-00004" summary="versioning updates">
+      <created>1570062329368</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570062329368</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added user endpoint">
+      <created>1570062644760</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570062644760</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed (patched) double-data.sql execution issue.">
+      <created>1570073306540</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1570073306540</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added builder pattern to BasicEventMessage">
+      <created>1570151421542</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570151421542</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated with dynamic API framework">
+      <created>1570764121442</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570764121442</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added ListUtils and ResourceNotFoundException">
+      <created>1570764158633</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1570764158633</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updated and finalized for use with EventMessageFactory">
+      <created>1570764213212</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570764213212</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Refactored EventMessages to make generic &amp; added EventMessageFactory &amp; Exceptions">
+      <created>1570764281088</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1570764281088</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updated for use with EventMessageFactory and refactored EventMessages">
+      <created>1570764327756</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1570764327756</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Initial commit">
+      <created>1692846139788</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692846139788</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add missing application configuration file">
+      <created>1692895843375</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1692895843375</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Make rabbit configurable for rest api application config">
+      <created>1692895961183</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692895961183</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Small fixes and Spring3/JDK17 upgrade">
+      <created>1692923204956</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692923204957</updated>
+    </task>
+    <task id="LOCAL-00017" summary="wip">
+      <created>1692931938840</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1692931938840</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$/../service/greeting-service-library" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../common/event-utils" />
+      <path value="$PROJECT_DIR$/../common/rabbit-utils" />
+      <path value="$PROJECT_DIR$/../common/service-utils" />
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/../service/greeting-service-library" />
+      <path value="$PROJECT_DIR$/../service/microservice" />
+      <path value="$PROJECT_DIR$/../service/relationaldb-service-config" />
+      <path value="$PROJECT_DIR$/../service/relationaldb-service-parent" />
+      <path value="$PROJECT_DIR$/../service/restapi" />
+      <path value="$PROJECT_DIR$/../service/service-parent" />
+      <path value="$PROJECT_DIR$/../service/usermanagement-service-library" />
+    </ignored-roots>
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Added file to gitignore" />
+    <MESSAGE value="versioning updates" />
+    <MESSAGE value="Added user endpoint" />
+    <MESSAGE value="Fixed (patched) double-data.sql execution issue." />
+    <MESSAGE value="Added builder pattern to BasicEventMessage" />
+    <MESSAGE value="Updated with dynamic API framework" />
+    <MESSAGE value="Added ListUtils and ResourceNotFoundException" />
+    <MESSAGE value="Updated and finalized for use with EventMessageFactory" />
+    <MESSAGE value="Refactored EventMessages to make generic &amp; added EventMessageFactory &amp; Exceptions" />
+    <MESSAGE value="Updated for use with EventMessageFactory and refactored EventMessages" />
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Add missing application configuration file" />
+    <MESSAGE value="Make rabbit configurable for rest api application config" />
+    <MESSAGE value="Small fixes and Spring3/JDK17 upgrade" />
+    <MESSAGE value="wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <condition expression="beanName.equalsIgnoreCase(&quot;entityManagerFactory&quot;)" language="JAVA" />
+          <dependency id="0" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.8.RELEASE/spring-beans-5.1.8.RELEASE.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class</url>
+          <line>378</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.6.RELEASE/spring-boot-autoconfigure-2.1.6.RELEASE.jar!/org/springframework/boot/autoconfigure/jdbc/DataSourceInitializer.class</url>
+          <line>72</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

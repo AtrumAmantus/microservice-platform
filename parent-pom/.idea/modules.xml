@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../common/domain-models/domain-models.iml" filepath="$PROJECT_DIR$/../common/domain-models/domain-models.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common/event-utils/event-utils.iml" filepath="$PROJECT_DIR$/../common/event-utils/event-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/greeting-service-library/greeting-service-library.iml" filepath="$PROJECT_DIR$/../service/greeting-service-library/greeting-service-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/microservice/microservice.iml" filepath="$PROJECT_DIR$/../service/microservice/microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent-pom.iml" filepath="$PROJECT_DIR$/parent-pom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common/rabbit-utils/rabbit-utils.iml" filepath="$PROJECT_DIR$/../common/rabbit-utils/rabbit-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/relationaldb-service-config/relationaldb-service-config.iml" filepath="$PROJECT_DIR$/../service/relationaldb-service-config/relationaldb-service-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/relationaldb-service-parent/relationaldb-service-parent.iml" filepath="$PROJECT_DIR$/../service/relationaldb-service-parent/relationaldb-service-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/restapi/restapi.iml" filepath="$PROJECT_DIR$/../service/restapi/restapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/../service/service-parent/service-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common/service-utils/service-utils.iml" filepath="$PROJECT_DIR$/../common/service-utils/service-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service/usermanagement-service-library/usermanagement-service-library.iml" filepath="$PROJECT_DIR$/../service/usermanagement-service-library/usermanagement-service-library.iml" />
+    </modules>
+  </component>
+</project>
