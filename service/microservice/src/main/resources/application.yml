@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    host: ${rabbit.host:localhost}
+    port: ${rabbit.port:5672}
+    username: ${rabbit.user:guest}
+    password: ${rabbit.password:guest}
