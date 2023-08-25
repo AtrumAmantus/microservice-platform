@@ -12,24 +12,10 @@
     </parent>
 
     <groupId>com.designwright.research.microserviceplatform.common</groupId>
-    <artifactId>service-utils</artifactId>
+    <artifactId>domain-models</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
-    <name>Utilities</name>
-    <description>Utilities for microservices</description>
-
-    <dependencies>
-        <!-- SpringBoot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-    </dependencies>
+    <name>Domain Models</name>
+    <description>Library containing cross service domain models</description>
 
 </project>

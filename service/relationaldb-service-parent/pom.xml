@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.designwright.research.microserviceplatform.service</groupId>
+        <artifactId>service-parent</artifactId>
+        <version>1-SNAPSHOT</version>
+        <relativePath>../service-parent</relativePath>
+    </parent>
+
+    <artifactId>relationaldb-service-parent</artifactId>
+    <version>1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>RelationalDB Service Parent Pom</name>
+    <description>Parent pom to pre-configure RelationalDB based services</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- Design Wright -->
+<!--        <dependency>-->
+<!--            <groupId>com.designwright.research.microserviceplatform.service</groupId>-->
+<!--            <artifactId>relationaldb-service-config</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.designwright.research.microserviceplatform.common</groupId>
+            <artifactId>event-utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.designwright.research.microserviceplatform.common</groupId>
+            <artifactId>service-utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.designwright.research.microserviceplatform.common</groupId>
+            <artifactId>domain-models</artifactId>
+        </dependency>
+        <!-- Testing -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>h2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <active.spring.profile>h2</active.spring.profile>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>**</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>src/test/resources</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>application-h2.yml</include>
+                            <include>seedData.json</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <version>${h2.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+</project>
