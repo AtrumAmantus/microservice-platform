@@ -4,11 +4,11 @@ import com.designwright.research.microserviceplatform.service.restapi.annotation
 import com.designwright.research.microserviceplatform.service.restapi.annotation.PreProcessor;
 import com.designwright.research.microserviceplatform.service.restapi.processing.DefaultProcessor;
 import com.designwright.research.microserviceplatform.service.restapi.processing.Processor;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 

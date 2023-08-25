@@ -5,21 +5,21 @@ import com.designwright.research.microserviceplatform.common.eventutils.EventMes
 import com.designwright.research.microserviceplatform.service.restapi.config.ApiEndpoint;
 import com.designwright.research.microserviceplatform.service.restapi.processing.Processor;
 import com.designwright.research.microserviceplatform.service.restapi.utility.ControllerUtility;
-import com.designwright.research.microserviceplatform.utils.exceptions.ResourceNotFoundException;
+import com.designwright.research.microserviceplatform.service.utils.exceptions.ResourceNotFoundException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;

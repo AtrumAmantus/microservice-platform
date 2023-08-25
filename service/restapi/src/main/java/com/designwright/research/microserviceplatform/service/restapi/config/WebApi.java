@@ -1,6 +1,5 @@
 package com.designwright.research.microserviceplatform.service.restapi.config;
 
-import com.designwright.research.microserviceplatform.utils.ListUtils;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -17,7 +16,7 @@ class WebApi {
     public Map<String, ApiEndpoint> getEndpointMap() {
         Map<String, ApiEndpoint> endpointMap = new HashMap<>();
 
-        if (!ListUtils.isEmpty(apiContexts)) {
+        if (apiContexts != null && !apiContexts.isEmpty()) {
             for (ApiContext apiContext : apiContexts) {
                 endpointMap.putAll(apiContext.getEndpointMap());
             }

@@ -4,25 +4,22 @@ import com.designwright.research.microserviceplatform.common.eventutils.EventMes
 import com.designwright.research.microserviceplatform.service.restapi.config.ApiEndpoint;
 import com.designwright.research.microserviceplatform.service.restapi.config.ProcessorConfiguration;
 import com.designwright.research.microserviceplatform.service.restapi.config.WebApiConfiguration;
-import com.designwright.research.microserviceplatform.utils.exceptions.ConfigurationException;
+import com.designwright.research.microserviceplatform.service.utils.exceptions.ConfigurationException;
 import com.designwright.research.microserviceplatform.service.restapi.processing.Processor;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-
-import static org.apache.commons.lang3.StringUtils.lowerCase;
-import static org.apache.commons.lang3.StringUtils.substring;
-import static org.apache.commons.lang3.StringUtils.upperCase;
 
 @Slf4j
 @Component
@@ -45,7 +42,7 @@ public class ControllerUtility {
     }
 
     public ApiEndpoint findRequestEndpoint(HttpServletRequest request) {
-        String requestMethod = upperCase(request.getMethod()) + ":";
+        String requestMethod = StringUtils.upperCase(request.getMethod()) + ":";
         String requestUrl = removeEndSlash(request.getRequestURI());
         ApiEndpoint apiEndpoint = endpointMap.get(requestMethod + requestUrl);
         if (apiEndpoint == null) {
@@ -99,7 +96,7 @@ public class ControllerUtility {
     }
 
     private String getProcessorNamePrefixFromEventType(String eventType) {
-        return lowerCase(eventType.split("\\.")[0]);
+        return StringUtils.lowerCase(eventType.split("\\.")[0]);
     }
 
     private boolean urlHasPathVariableDefined(String requestUrl, String endpointUrl) {
@@ -107,6 +104,6 @@ public class ControllerUtility {
     }
 
     private String removeEndSlash(String url) {
-        return substring(url, -1).equalsIgnoreCase("/") ? substring(url, 0, -1) : url;
+        return StringUtils.substring(url, -1).equalsIgnoreCase("/") ? StringUtils.substring(url, 0, -1) : url;
     }
 }
