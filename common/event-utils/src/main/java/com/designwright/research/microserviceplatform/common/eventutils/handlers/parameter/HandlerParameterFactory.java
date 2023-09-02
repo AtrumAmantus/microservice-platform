@@ -18,6 +18,7 @@ public class HandlerParameterFactory {
         } else if (clazz.equals(Boolean.class) || (clazz.equals(boolean.class))) {
             return new ParameterBooleanType();
         }
+
         throw new RuntimeException("Unknown parameter type");
     }
 }

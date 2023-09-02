@@ -24,14 +24,14 @@ import java.util.Set;
 @Data
 public class EventControllerStore {
 
-    private Map<String, Object> controllerClassToInstance = new HashMap<>();
-    private Map<String, Set<String>> queueToEventTypes = new HashMap<>();
+    private final Map<String, Object> controllerClassToInstance = new HashMap<>();
+    private final Map<String, Set<String>> queueToEventTypes = new HashMap<>();
     /**
      * Map of {@link EventHandler} {@link Set}s, keyed by the event type they handle.
      *
      * <p>Some events are handled by multiple {@link EventHandler}s, but with different parameters
      */
-    private Map<String, Set<EventHandler>> eventToHandlerMethod = new HashMap<>();
+    private final Map<String, Set<EventHandler>> eventToHandlerMethod = new HashMap<>();
 
     public void setController(String name, Object controller) {
         controllerClassToInstance.put(name, controller);
@@ -45,21 +45,17 @@ public class EventControllerStore {
      */
     public void addHandlerForEvent(String eventType, Method handler) {
         // TODO: Add a check that multiple EventHandlers don't handle the same event with the same parameters.
-        if (!eventToHandlerMethod.containsKey(eventType)) {
-            eventToHandlerMethod.put(eventType, new HashSet<>());
-        }
+        eventToHandlerMethod.computeIfAbsent(eventType, k -> new HashSet<>());
 
         EventHandler eventHandler = new EventHandler(handler.getDeclaringClass().getSimpleName(), handler);
         Map<String, HandlerParameterType<?>> parameterNameToHandlerParameterType = new HashMap<>();
 
         // TODO: Allow for custom parameter types?
-        if (handler.getParameters().length > 0) {
-            for (Parameter parameter : handler.getParameters()) {
-                eventHandler.addParameter(parameter.getName());
-                parameterNameToHandlerParameterType.put(
-                        parameter.getName(),
-                        HandlerParameterFactory.createFromClassType(parameter.getType()));
-            }
+        for (Parameter parameter : handler.getParameters()) {
+            eventHandler.addParameter(parameter.getName());
+            parameterNameToHandlerParameterType.put(
+                    parameter.getName(),
+                    HandlerParameterFactory.createFromClassType(parameter.getType()));
         }
 
         eventHandler.setMethodParameterNameToDefinition(parameterNameToHandlerParameterType);

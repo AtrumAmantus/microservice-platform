@@ -5,10 +5,9 @@ import com.designwright.research.microserviceplatform.common.eventutils.EventMes
 import com.designwright.research.microserviceplatform.service.restapi.config.ApiEndpoint;
 import com.designwright.research.microserviceplatform.service.restapi.processing.Processor;
 import com.designwright.research.microserviceplatform.service.restapi.utility.ControllerUtility;
+import com.designwright.research.microserviceplatform.service.utils.MappingUtils;
 import com.designwright.research.microserviceplatform.service.utils.exceptions.ResourceNotFoundException;
-import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +22,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +34,7 @@ import java.util.stream.Collectors;
 class WebController {
 
     private final ControllerUtility controllerUtility;
+    private final MappingUtils mappingUtils;
 
     private static final String DEFAULT_EVENT_TYPE = "endpoint.get.Requested";
 
@@ -75,9 +74,8 @@ class WebController {
             String bodyStream = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 
             if (!StringUtils.isEmpty(bodyStream)) {
-                JavaType javaType = new ObjectMapper().getTypeFactory().constructCollectionType(List.class, Object.class);
-                ArrayList<? extends Serializable> bodyList = new ObjectMapper().readValue(bodyStream, javaType);
-                eventMessage.setPayload(bodyList);
+                List<? extends Serializable> bodyList = mappingUtils.convertFromJsonList(bodyStream, Serializable.class);
+                eventMessage.setPayload((Serializable) bodyList);
             }
         } catch (JsonMappingException ex) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Received bad request: JSON body has syntax error.", ex);
