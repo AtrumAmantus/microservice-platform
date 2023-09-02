@@ -32,6 +32,7 @@
     </properties>
 
     <modules>
+        <module>../common/domain-models</module>
         <module>../common/service-utils</module>
         <module>../common/event-utils</module>
         <module>../common/rabbit-utils</module>
@@ -39,6 +40,7 @@
         <module>../service/relationaldb-service-config</module>
         <module>../service/relationaldb-service-parent</module>
         <module>../service/greeting-service</module>
+        <module>../service/user-management-service</module>
         <module>../service/restapi</module>
         <module>../service/microservice</module>
     </modules>
@@ -76,6 +78,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.designwright.research.microserviceplatform.common</groupId>
+                <artifactId>domain-models</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>com.designwright.research.microserviceplatform.common</groupId>
                 <artifactId>event-utils</artifactId>

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: User-Management-Service
+  main:
+    web-application-type: none
+  profiles:
+    active: @active.spring.profile@
+  datasource:
+    url: ${datasource.url}
+    driver-class-name: ${datasource.driver}
+    username: ${datasource.username}
+    password: ${datasource.password}
+  jpa:
+    database-platform: ${datasource.dialect}
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+  rabbitmq:
+    host: ${rabbit.host:localhost}
+    port: ${rabbit.port:5672}
+    username: ${rabbit.user:guest}
+    password: ${rabbit.password:guest}

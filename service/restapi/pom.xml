@@ -28,6 +28,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+        <!-- Design-Wright -->
+        <dependency>
+            <groupId>com.designwright.research.microserviceplatform.common</groupId>
+            <artifactId>domain-models</artifactId>
+        </dependency>
         <!-- Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
