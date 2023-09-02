@@ -27,10 +27,6 @@
         </dependency>
         <dependency>
             <groupId>com.designwright.research.microserviceplatform.common</groupId>
-            <artifactId>service-utils</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.designwright.research.microserviceplatform.common</groupId>
             <artifactId>rabbit-utils</artifactId>
         </dependency>
     </dependencies>

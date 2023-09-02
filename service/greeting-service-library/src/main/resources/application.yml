@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: Greeting-Service
   rabbitmq:
     host: ${rabbit.host:localhost}
     port: ${rabbit.port:5672}

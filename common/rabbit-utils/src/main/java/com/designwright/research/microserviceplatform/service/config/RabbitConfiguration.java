@@ -4,6 +4,7 @@ import com.designwright.research.microserviceplatform.common.eventutils.handlers
 import com.designwright.research.microserviceplatform.common.eventutils.EventMessage;
 import com.designwright.research.microserviceplatform.common.eventutils.EventPublisher;
 import com.designwright.research.microserviceplatform.common.rabbitutils.RabbitPublisher;
+import com.designwright.research.microserviceplatform.service.common.config.ServiceConfiguration;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Declarable;
@@ -97,7 +98,10 @@ public class RabbitConfiguration {
      * @return The created {@link SimpleMessageListenerContainer}.
      */
     @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter, EventControllerStore eventControllerStore) {
+    SimpleMessageListenerContainer container(
+            ConnectionFactory connectionFactory,
+            MessageListenerAdapter listenerAdapter,
+            EventControllerStore eventControllerStore) {
         String[] queueNames = eventControllerStore.getQueueToEventTypes().keySet().stream()
                 .map(s -> s.split("\\.")[1]).toArray(String[]::new);
 
@@ -150,7 +154,7 @@ public class RabbitConfiguration {
      */
     @Bean
     ConnectionNameStrategy namingStrategy() {
-        return connectionFactory -> "MicroserviceApplication";
+        return connectionFactory -> ServiceConfiguration.getApplicationId();
     }
 
     /**

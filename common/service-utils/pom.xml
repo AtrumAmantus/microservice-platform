@@ -16,7 +16,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Utilities</name>
+    <name>Service-Utilities</name>
     <description>Utilities for microservices</description>
 
     <dependencies>

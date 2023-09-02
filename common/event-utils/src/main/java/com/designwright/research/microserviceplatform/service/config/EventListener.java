@@ -2,6 +2,7 @@ package com.designwright.research.microserviceplatform.service.config;
 
 import com.designwright.research.microserviceplatform.common.eventutils.handlers.EventControllerStore;
 import com.designwright.research.microserviceplatform.common.eventutils.EventMessage;
+import com.designwright.research.microserviceplatform.service.common.config.ServiceConfiguration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,7 @@ public class EventListener {
      */
     public <T extends Serializable> EventMessage<T> processCommand(EventMessage<T> eventMessage) {
         eventControllerStore.process(eventMessage);
+        eventMessage.setPublisherId(ServiceConfiguration.getApplicationId());
         return eventMessage;
     }
 }

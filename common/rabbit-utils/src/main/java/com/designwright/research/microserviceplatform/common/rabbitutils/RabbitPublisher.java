@@ -15,7 +15,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class RabbitPublisher implements EventPublisher {
+public class RabbitPublisher extends EventPublisher {
 
     private static final String MESSAGE_REPLY_TIMED_OUT = "Message reply timed out.";
     private static final String THERE_WAS_AN_ISSUE_RECEIVING_THE_MESSAGE = "There was an issue receiving the message.";
@@ -26,7 +26,7 @@ public class RabbitPublisher implements EventPublisher {
     private final RabbitTemplate rabbitTemplate;
 
     @Override
-    public <P extends EventMessage<?>> void publish(String exchange, String routingKey, P message) {
+    public <P extends EventMessage<?>> void publishImpl(String exchange, String routingKey, P message) {
         try {
             rabbitTemplate.convertAndSend(exchange, routingKey, message);
         } catch (AmqpTimeoutException ex) {
@@ -37,7 +37,7 @@ public class RabbitPublisher implements EventPublisher {
     }
 
     @Override
-    public EventMessage publishAndReceive(String exchange, String routingKey, EventMessage message) {
+    public EventMessage publishAndReceiveImpl(String exchange, String routingKey, EventMessage message) {
         EventMessage response;
         Object responseObject;
         try {

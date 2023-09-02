@@ -36,6 +36,8 @@ public abstract class EventMessage<T extends Serializable> implements Serializab
     private final Map<String, String> parameterValues;
     /** The type of event associated with this message */
     private String eventType;
+    /** The ID for the service that published this message */
+    private String publisherId;
     /** Any error or warning message that may be related to this event's processing */
     private String errorMessage;
     /** The current {@link EventStatus} of the message */
