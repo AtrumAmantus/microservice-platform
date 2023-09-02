@@ -60,10 +60,12 @@ class WebController {
     private EventMessage<Serializable> addRequestParameters(EventMessage<Serializable> eventMessage, HttpServletRequest request) {
         Enumeration<String> parameters = request.getParameterNames();
         Map<String, String> requestParameters = new HashMap<>();
+
         while (parameters.hasMoreElements()) {
             String parameter = parameters.nextElement();
             requestParameters.put(parameter, request.getParameter(parameter));
         }
+
         eventMessage.addParameterValues(requestParameters);
         return eventMessage;
     }
@@ -71,6 +73,7 @@ class WebController {
     private void addRequestBody(EventMessage<Serializable> eventMessage, HttpServletRequest request) {
         try {
             String bodyStream = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+
             if (!StringUtils.isEmpty(bodyStream)) {
                 JavaType javaType = new ObjectMapper().getTypeFactory().constructCollectionType(List.class, Object.class);
                 ArrayList<? extends Serializable> bodyList = new ObjectMapper().readValue(bodyStream, javaType);

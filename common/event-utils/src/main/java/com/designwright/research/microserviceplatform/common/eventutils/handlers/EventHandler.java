@@ -24,7 +24,7 @@ public class EventHandler {
     /** The order of the parameters for this method that is required when invoking it */
     private final List<String> methodParameterOrder = new ArrayList<>();
     /** A map of definitions for each parameter, keyed by the parameter name */
-    private Map<String, HandlerParameterType<?>> parameterNameToDefinition;
+    private Map<String, HandlerParameterType<?>> methodParameterNameToDefinition;
 
     /**
      * Add a parameter to the list of parameters required by this method.
@@ -47,26 +47,26 @@ public class EventHandler {
      * with the given parameter name.
      */
     public Optional<HandlerParameterType<?>> getHandlerParameterType(String parameterName) {
-        return Optional.ofNullable(parameterNameToDefinition.get(parameterName));
+        return Optional.ofNullable(methodParameterNameToDefinition.get(parameterName));
     }
 
     /**
      * Creates a {@link AnalysisResult} of the given parameters to determine which ones are supported by this
      * {@link EventHandler}.
      *
-     * @param parameterNameToValue Map of the given parameters (name,value) to test against.
+     * @param requestParameterNameToValue Map of the given parameters (name,value) to test against.
      *
      * @return The created {@link AnalysisResult}.
      */
-    public AnalysisResult analyzeAgainstSupportedParameters(Map<String, String> parameterNameToValue) {
+    public AnalysisResult analyzeAgainstSupportedParameters(Map<String, String> requestParameterNameToValue) {
         AnalysisResult analysis = new AnalysisResult(controllerMethod, controllerName);
-        analysis.setParameterOrder(methodParameterOrder);
-        analysis.setExpectedParameters(new ArrayList<>(parameterNameToDefinition.keySet()));
+        analysis.setMethodParameterOrder(methodParameterOrder);
+        analysis.setMethodParameters(new ArrayList<>(methodParameterNameToDefinition.keySet()));
 
-        for (Map.Entry<String, String> parameter : parameterNameToValue.entrySet()) {
-            analysis.addProvidedParameter(parameter.getKey());
+        for (Map.Entry<String, String> requestParameter : requestParameterNameToValue.entrySet()) {
+            analysis.addRequestParameter(requestParameter.getKey());
 
-            addIfParameterIsSupported(analysis, parameter.getKey(), parameter.getValue());
+            addIfParameterIsSupported(analysis, requestParameter.getKey(), requestParameter.getValue());
         }
 
         return analysis;

@@ -5,7 +5,7 @@ import com.designwright.research.microserviceplatform.service.greeting.service.I
 import com.designwright.research.microserviceplatform.common.eventutils.annotations.EventController;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@EventController(context = "ServiceDataExchange.InteractionQueue")
+@EventController(context = "ServiceDataExchange.InsultServiceQueue")
 public class InsultController {
 
     public final InsultService insultService;

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
 
-@EventController(context = "ServiceDataExchange.InteractionQueue")
+@EventController(context = "ServiceDataExchange.GreetingServiceQueue")
 public class GreetingController {
 
     private final GreetingService greetingService;

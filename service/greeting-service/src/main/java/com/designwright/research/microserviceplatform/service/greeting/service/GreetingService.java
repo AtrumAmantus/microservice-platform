@@ -15,7 +15,7 @@ public class GreetingService {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < repeats; i++) {
-            if (sb.length() > 0) {
+            if (!sb.isEmpty()) {
                 sb.append(", ");
             }
             sb.append("hello");

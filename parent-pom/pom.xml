@@ -38,8 +38,7 @@
         <module>../service/service-parent</module>
         <module>../service/relationaldb-service-config</module>
         <module>../service/relationaldb-service-parent</module>
-        <module>../service/greeting-service-library</module>
-        <module>../service/usermanagement-service-library</module>
+        <module>../service/greeting-service</module>
         <module>../service/restapi</module>
         <module>../service/microservice</module>
     </modules>

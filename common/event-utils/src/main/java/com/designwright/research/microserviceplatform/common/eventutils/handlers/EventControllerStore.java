@@ -62,7 +62,7 @@ public class EventControllerStore {
             }
         }
 
-        eventHandler.setParameterNameToDefinition(parameterNameToHandlerParameterType);
+        eventHandler.setMethodParameterNameToDefinition(parameterNameToHandlerParameterType);
         eventToHandlerMethod.get(eventType).add(eventHandler);
     }
 
