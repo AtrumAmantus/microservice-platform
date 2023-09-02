@@ -37,12 +37,10 @@
         <module>../common/event-utils</module>
         <module>../common/rabbit-utils</module>
         <module>../service/service-parent</module>
-        <module>../service/relationaldb-service-config</module>
         <module>../service/relationaldb-service-parent</module>
         <module>../service/greeting-service</module>
         <module>../service/user-management-service</module>
         <module>../service/restapi</module>
-        <module>../service/microservice</module>
     </modules>
 
     <dependencies>
