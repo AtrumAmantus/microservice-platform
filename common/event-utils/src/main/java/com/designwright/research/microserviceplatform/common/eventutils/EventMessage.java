@@ -7,10 +7,11 @@ import org.apache.commons.lang3.SerializationUtils;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/** Contains the relevant payload and meta data for an event passed around between services */
+/** Contains the relevant payload and metadata for an event passed around between services */
 @Data
 public abstract class EventMessage<T extends Serializable> implements Serializable {
 
@@ -43,7 +44,7 @@ public abstract class EventMessage<T extends Serializable> implements Serializab
     /** The current {@link EventStatus} of the message */
     private EventStatus status;
     /** The payload of the message */
-    private T payload;
+    private List<T> payload;
 
     @Setter
     private static EventPublisher publisher;

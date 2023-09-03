@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** TODO: Reconsider this class's role and scope, it's a little confusing */
 @Data
 @RequiredArgsConstructor
 public class AnalysisResult {
@@ -23,7 +22,6 @@ public class AnalysisResult {
     @Getter(AccessLevel.PRIVATE)
     private final Map<String, Object> matchingParameters = new HashMap<>();
 
-    private List<String> methodParameters = new ArrayList<>();
     private List<String> methodParameterOrder = new ArrayList<>();
 
     /**
@@ -60,30 +58,37 @@ public class AnalysisResult {
         return returnValues;
     }
 
-    // TODO: Matching score logic needs to be reworked
+    /**
+     * Gets the score for how good of a match the {@link EventHandler} was for the given request.
+     *
+     * <p>A score of 0 means the request does not satisfy the {@link EventHandler}</p>
+     *
+     * <p>A positive score means at least a partial match, with a lower score meaning a more precise match</p>
+     *
+     * @return A score representing the precision of the match.
+     */
+    public int getMatchScore() {
+        int score;
 
-    public Float getMatchScore() {
-        float score;
-
-        if (requestParameters.isEmpty() && methodParameters.isEmpty()) {
-            // There were no parameters sent, and this method expects none, perfect match
-            score = 1.0f;
-        } else if (matchingParameters.isEmpty()) {
-            // There were no matching parameters, bad score
-            score = 0.0f;
+        if (methodParameterOrder.size() != matchingParameters.size()) {
+            // We didn't match every required method parameter, failed match
+            score = 0;
         } else {
+            // TODO: This calculation needs some work, it can goof with multiple EventMessage method parameters
             // Score based on how many parameters were in the request and how many matched.
-            score = (requestParameters.size() + methodParameters.size()) / (matchingParameters.size() * 2.0f);
+            // Adding +2 to offset the value in instances where the method wanted an
+            // EventMessage and the request has 0 parameters
+            score = (requestParameters.size() - methodParameterOrder.size()) + 2;
         }
 
         return score;
     }
 
     public boolean isPartialMatch() {
-        return !matchingParameters.isEmpty();
+        return getMatchScore() > 0;
     }
 
     public boolean isSolidMatch() {
-        return getMatchScore().equals(1f);
+        return getMatchScore() == 2;
     }
 }

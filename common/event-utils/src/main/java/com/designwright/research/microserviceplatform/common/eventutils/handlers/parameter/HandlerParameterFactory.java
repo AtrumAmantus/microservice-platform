@@ -1,5 +1,7 @@
 package com.designwright.research.microserviceplatform.common.eventutils.handlers.parameter;
 
+import com.designwright.research.microserviceplatform.common.eventutils.EventMessage;
+
 import java.sql.Timestamp;
 
 public class HandlerParameterFactory {
@@ -13,6 +15,8 @@ public class HandlerParameterFactory {
             return new ParameterLongType();
         } else if (clazz.equals(Float.class) || (clazz.equals(float.class))) {
             return new ParameterFloatType();
+        } else if (clazz.equals(Boolean.class) || (clazz.equals(boolean.class))) {
+            return new ParameterBooleanType();
         } else if (clazz.equals(Timestamp.class)) {
             return new ParameterTimestampType();
         } else if (clazz.equals(Boolean.class) || (clazz.equals(boolean.class))) {

@@ -48,17 +48,17 @@ public class EventControllerStore {
         eventToHandlerMethod.computeIfAbsent(eventType, k -> new HashSet<>());
 
         EventHandler eventHandler = new EventHandler(handler.getDeclaringClass().getSimpleName(), handler);
-        Map<String, HandlerParameterType<?>> parameterNameToHandlerParameterType = new HashMap<>();
+        Map<String, HandlerParameterType<?>> methodParameterNameToHandlerParameterType = new HashMap<>();
 
         // TODO: Allow for custom parameter types?
         for (Parameter parameter : handler.getParameters()) {
-            eventHandler.addParameter(parameter.getName());
-            parameterNameToHandlerParameterType.put(
+            eventHandler.addParameter(parameter);
+            methodParameterNameToHandlerParameterType.put(
                     parameter.getName(),
                     HandlerParameterFactory.createFromClassType(parameter.getType()));
         }
 
-        eventHandler.setMethodParameterNameToDefinition(parameterNameToHandlerParameterType);
+        eventHandler.setMethodParameterNameToDefinition(methodParameterNameToHandlerParameterType);
         eventToHandlerMethod.get(eventType).add(eventHandler);
     }
 
@@ -99,7 +99,7 @@ public class EventControllerStore {
 
             // Find a method that matches the given parameters, or one that has the most of them at least
             for (EventHandler eventHandler : eventMethods) {
-                AnalysisResult analysis = eventHandler.analyzeAgainstSupportedParameters(request.getParameterValues());
+                AnalysisResult analysis = eventHandler.analyzeAgainstSupportedParameters(request);
 
                 if (analysis.isSolidMatch()) {
                     // We found a method that matches all given parameters
@@ -110,7 +110,7 @@ public class EventControllerStore {
                 } else if (analysis.isPartialMatch()) {
                     // This method has "some" of the given parameters, check if it has the most
                     if (bestMatchingMethod != null) {
-                        if (analysis.getMatchScore() > bestMatchingMethod.getMatchScore()) {
+                        if (analysis.getMatchScore() < bestMatchingMethod.getMatchScore()) {
                             bestMatchingMethod = analysis;
                         }
                     } else {
@@ -133,9 +133,15 @@ public class EventControllerStore {
 
                     request.setStatus(EventMessage.EventStatus.SUCCESS);
                     Object result = methodToInvoke.invoke(classInstance, valuesToInvokeWith.toArray());
-                    request.setPayload((T) result);
+
+                    if (result instanceof List) {
+                        request.setPayload((List<T>) result);
+                    } else {
+                        request.setPayload(new ArrayList<T>(List.<T>of((T)result)));
+                    }
 
                 } catch (IllegalAccessException | InvocationTargetException ex) {
+                    log.error("Failed to process event", ex);
                     request.setStatus(EventMessage.EventStatus.FAIL);
                     request.setErrorMessage("Can not process this event type.");
                 }
