@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Setter;
 import org.apache.commons.lang3.SerializationUtils;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,8 @@ import java.util.UUID;
 @Data
 public abstract class EventMessage<T extends Serializable> implements Serializable {
 
-    public static final long serialVersionUID = 8098058613268126284L;
+    @Serial
+    private static final long serialVersionUID = 8098058613268126284L;
 
     /** Denotes the status of the event */
     public enum EventStatus {

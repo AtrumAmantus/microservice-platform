@@ -2,12 +2,14 @@ package com.designwright.research.microserviceplatform.domain;
 
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Data
 public class User implements Serializable {
 
-    public static final long serialVersionUID = 4098058543268126281L;
+    @Serial
+    private static final long serialVersionUID = 4098058543268126281L;
 
     private Long id;
     private String username;
