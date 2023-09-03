@@ -5,6 +5,7 @@ import com.designwright.research.microserviceplatform.common.eventutils.handlers
 import com.designwright.research.microserviceplatform.common.eventutils.EventMessage;
 import com.designwright.research.microserviceplatform.common.eventutils.annotations.EventController;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -21,6 +22,7 @@ import java.util.Set;
  * Used to create a store of the various {@link EventController}s that are defined by this service, along with
  * the metadata of the methods and events that the controllers handle.
  */
+@Slf4j
 @Data
 public class EventControllerStore {
 
