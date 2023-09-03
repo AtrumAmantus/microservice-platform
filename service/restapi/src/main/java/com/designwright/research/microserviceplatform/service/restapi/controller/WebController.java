@@ -93,9 +93,16 @@ class WebController {
         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Received bad request.", ex);
     }
 
-    private EventMessage<Serializable> processRequest(EventMessage<Serializable> eventMessage, HttpServletRequest request) {
-        if (log.isDebugEnabled())
-            log.debug("Endpoint: {}, RequestType: {}, Params: {}", request.getRequestURI(), request.getMethod(), eventMessage.getParameterValues());
+    private EventMessage<Serializable> processRequest(
+            EventMessage<Serializable> eventMessage,
+            HttpServletRequest request) {
+        if (log.isDebugEnabled()) {
+            log.debug(
+                    "Endpoint: {}, RequestType: {}, Params: {}",
+                    request.getRequestURI(),
+                    request.getMethod(),
+                    eventMessage.getParameterValues());
+        }
 
         ApiEndpoint apiEndpoint = controllerUtility.findRequestEndpoint(request);
 
@@ -121,7 +128,10 @@ class WebController {
         return postProcessor.process(eventMessage);
     }
 
-    private EventMessage<Serializable> processRequestEvent(EventMessage<Serializable> eventMessage, ApiEndpoint apiEndpoint, HttpServletRequest request) {
+    private EventMessage<Serializable> processRequestEvent(
+            EventMessage<Serializable> eventMessage,
+            ApiEndpoint<?> apiEndpoint,
+            HttpServletRequest request) {
         EventMessage<Serializable> response = null;
 
         try {
@@ -132,7 +142,10 @@ class WebController {
             response = eventMessage.publishAndReceive();
 
             if (response.getStatus() == EventMessage.EventStatus.NOT_FOUND) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND, response.getErrorMessage(), new ResourceNotFoundException(""));
+                throw new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        response.getErrorMessage(),
+                        new ResourceNotFoundException(""));
             }
 
             return response;
@@ -144,6 +157,7 @@ class WebController {
             log.error("Invalid server configuration");
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Invalid server configuration", ex);
         }
+
         return response;
     }
 }

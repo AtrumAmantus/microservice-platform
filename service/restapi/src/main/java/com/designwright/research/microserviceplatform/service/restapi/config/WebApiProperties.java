@@ -3,15 +3,16 @@ package com.designwright.research.microserviceplatform.service.restapi.config;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @ConfigurationProperties("webapi")
-class WebApi {
+class WebApiProperties {
 
     @Setter
-    private List<ApiContext> apiContexts;
+    private List<ApiContext> apiContexts = new ArrayList<>();
 
     public Map<String, ApiEndpoint> getEndpointMap() {
         Map<String, ApiEndpoint> endpointMap = new HashMap<>();

@@ -26,7 +26,7 @@ public class UserService {
     public User getUserById(Long id) {
         Optional<UserEntity> userEntity = userRepository.findById(id);
 
-        if (!userEntity.isPresent()) {
+        if (userEntity.isEmpty()) {
             throw new ResourceNotFoundException("Resource not found");
         }
 

@@ -3,6 +3,7 @@ package com.designwright.research.microserviceplatform.service.restapi.config;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +12,7 @@ import java.util.Map;
 public class ApiContext {
 
     private String context;
-    private List<ApiVersion> apiVersions;
+    private List<ApiVersion> apiVersions = new ArrayList<>();
 
     public Map<String, ApiEndpoint> getEndpointMap() {
         Map<String, ApiEndpoint> endpointMap = new HashMap<>();

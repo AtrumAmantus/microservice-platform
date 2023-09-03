@@ -9,10 +9,10 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @Configuration
-@EnableConfigurationProperties({WebApi.class})
+@EnableConfigurationProperties({WebApiProperties.class})
 public class WebApiConfiguration {
 
-    private final WebApi webApi;
+    private final WebApiProperties webApi;
 
     public Map<String, ApiEndpoint> getEndpointMap() {
         if (webApi != null) {

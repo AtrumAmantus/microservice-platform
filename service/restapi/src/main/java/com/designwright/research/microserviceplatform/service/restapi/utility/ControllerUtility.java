@@ -4,8 +4,8 @@ import com.designwright.research.microserviceplatform.common.eventutils.EventMes
 import com.designwright.research.microserviceplatform.service.restapi.config.ApiEndpoint;
 import com.designwright.research.microserviceplatform.service.restapi.config.ProcessorConfiguration;
 import com.designwright.research.microserviceplatform.service.restapi.config.WebApiConfiguration;
-import com.designwright.research.microserviceplatform.service.utils.exceptions.ConfigurationException;
 import com.designwright.research.microserviceplatform.service.restapi.processing.Processor;
+import com.designwright.research.microserviceplatform.service.utils.exceptions.ConfigurationException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.MapUtils;
@@ -68,7 +68,7 @@ public class ControllerUtility {
             ApiEndpoint apiEndpoint,
             String requestUrl) throws UnsupportedEncodingException {
         if (urlHasPathVariableDefined(requestUrl, apiEndpoint.getRequestUrl())) {
-            String pathVariableValue = java.net.URLDecoder.decode(getLastLayerOfUrl(requestUrl), StandardCharsets.UTF_8.name());
+            String pathVariableValue = java.net.URLDecoder.decode(getLastLayerOfUrl(requestUrl), StandardCharsets.UTF_8);
             eventMessage.addParameter(apiEndpoint.getPathVariableName(), pathVariableValue);
         }
         return eventMessage;

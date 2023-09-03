@@ -6,6 +6,10 @@ import java.sql.Timestamp;
 
 public class HandlerParameterFactory {
 
+    private HandlerParameterFactory() {
+
+    }
+
     public static <T> HandlerParameterType<?> createFromClassType(Class<T> clazz) {
         if (clazz.equals(String.class)) {
             return new ParameterStringType();
