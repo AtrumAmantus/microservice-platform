@@ -15,3 +15,4 @@ webapi:
             - get: greeting
             - get: users/{id}
               post: users
+              requestModel: com.designwright.research.microserviceplatform.domain.User

@@ -15,7 +15,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +25,7 @@ import java.util.Map;
 public class ControllerUtility {
 
     private final ProcessorConfiguration processorConfiguration;
-    private final Map<String, ApiEndpoint> endpointMap;
+    private final Map<String, ApiEndpoint<?>> endpointMap;
 
     @Autowired
     public ControllerUtility(
@@ -41,10 +40,10 @@ public class ControllerUtility {
         }
     }
 
-    public ApiEndpoint findRequestEndpoint(HttpServletRequest request) {
+    public ApiEndpoint<?> findRequestEndpoint(HttpServletRequest request) {
         String requestMethod = StringUtils.upperCase(request.getMethod()) + ":";
         String requestUrl = removeEndSlash(request.getRequestURI());
-        ApiEndpoint apiEndpoint = endpointMap.get(requestMethod + requestUrl);
+        ApiEndpoint<?> apiEndpoint = endpointMap.get(requestMethod + requestUrl);
         if (apiEndpoint == null) {
             String revisedUrl = removeLastLayerOfUrl(requestUrl);
             apiEndpoint = endpointMap.get(requestMethod + revisedUrl);
@@ -65,8 +64,8 @@ public class ControllerUtility {
 
     public EventMessage<Serializable> checkAndSetPathVariable(
             EventMessage<Serializable> eventMessage,
-            ApiEndpoint apiEndpoint,
-            String requestUrl) throws UnsupportedEncodingException {
+            ApiEndpoint<?> apiEndpoint,
+            String requestUrl) {
         if (urlHasPathVariableDefined(requestUrl, apiEndpoint.getRequestUrl())) {
             String pathVariableValue = java.net.URLDecoder.decode(getLastLayerOfUrl(requestUrl), StandardCharsets.UTF_8);
             eventMessage.addParameter(apiEndpoint.getPathVariableName(), pathVariableValue);

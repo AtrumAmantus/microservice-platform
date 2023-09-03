@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /** Basic implementation of the {@link EventMessage} abstract class */
@@ -34,7 +35,7 @@ public class BasicEventMessage<T extends Serializable> extends EventMessage<T> {
         private Map<String, String> parameters;
         private String message;
         private EventStatus status;
-        private T payload;
+        private List<T> payload;
 
         public static <T extends Serializable> BasicEventMessage<T> from(EventMessage<T> eventMessage) {
             return new BasicEventMessage<>(eventMessage);
@@ -63,7 +64,7 @@ public class BasicEventMessage<T extends Serializable> extends EventMessage<T> {
             return this;
         }
 
-        public Builder<T> payload(T payload) {
+        public Builder<T> payload(List<T> payload) {
             this.payload = payload;
             return this;
         }

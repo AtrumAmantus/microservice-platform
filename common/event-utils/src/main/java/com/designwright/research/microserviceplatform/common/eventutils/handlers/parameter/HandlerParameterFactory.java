@@ -23,8 +23,8 @@ public class HandlerParameterFactory {
             return new ParameterBooleanType();
         } else if (clazz.equals(Timestamp.class)) {
             return new ParameterTimestampType();
-        } else if (clazz.equals(Boolean.class) || (clazz.equals(boolean.class))) {
-            return new ParameterBooleanType();
+        } else if (clazz.equals(EventMessage.class)) {
+            return new ParameterEventMessageType();
         }
 
         throw new RuntimeException("Unknown parameter type");

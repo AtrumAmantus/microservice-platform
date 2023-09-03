@@ -14,8 +14,8 @@ public class ApiContext {
     private String context;
     private List<ApiVersion> apiVersions = new ArrayList<>();
 
-    public Map<String, ApiEndpoint> getEndpointMap() {
-        Map<String, ApiEndpoint> endpointMap = new HashMap<>();
+    public Map<String, ApiEndpoint<?>> getEndpointMap() {
+        Map<String, ApiEndpoint<?>> endpointMap = new HashMap<>();
 
         if (apiVersions != null && !apiVersions.isEmpty() && !StringUtils.isEmpty(context)) {
             for (ApiVersion apiVersion : apiVersions) {

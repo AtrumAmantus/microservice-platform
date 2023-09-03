@@ -1,5 +1,6 @@
 package com.designwright.research.microserviceplatform.service.usermanagement.controller;
 
+import com.designwright.research.microserviceplatform.common.eventutils.EventMessage;
 import com.designwright.research.microserviceplatform.common.eventutils.annotations.EventMapping;
 import com.designwright.research.microserviceplatform.domain.User;
 import com.designwright.research.microserviceplatform.service.usermanagement.service.UserService;
@@ -22,6 +23,11 @@ public class UserController {
     @EventMapping("users.get.requested")
     public User getUserById(Long id) {
         return userService.getUserById(id);
+    }
+
+    @EventMapping("users.create.requested")
+    public boolean createUser(EventMessage<User> eventMessage) {
+        return userService.createUser(eventMessage.getPayload().get(0));
     }
 
 }

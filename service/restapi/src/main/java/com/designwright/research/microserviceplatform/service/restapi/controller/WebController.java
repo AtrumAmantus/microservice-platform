@@ -21,7 +21,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -43,12 +42,9 @@ class WebController {
     @SuppressWarnings({"squid:S3752", "unused"})
     @RequestMapping(value = "/**")
     public EventMessage<Serializable> processGenericRequest(HttpServletRequest request) {
-        EventMessage<Serializable> eventMessage = addRequestParameters(getGenericMessage(), request);
-        addRequestBody(eventMessage, request);
-        return processRequest(
-                eventMessage,
-                request
-        );
+        EventMessage<Serializable> eventMessage = getGenericMessage();
+
+        return processRequest(eventMessage, request);
     }
 
     private EventMessage<Serializable> getGenericMessage() {
@@ -56,7 +52,7 @@ class WebController {
                 .build();
     }
 
-    private EventMessage<Serializable> addRequestParameters(EventMessage<Serializable> eventMessage, HttpServletRequest request) {
+    private void addRequestParameters(EventMessage<Serializable> eventMessage, HttpServletRequest request) {
         Enumeration<String> parameters = request.getParameterNames();
         Map<String, String> requestParameters = new HashMap<>();
 
@@ -66,16 +62,15 @@ class WebController {
         }
 
         eventMessage.addParameterValues(requestParameters);
-        return eventMessage;
     }
 
-    private void addRequestBody(EventMessage<Serializable> eventMessage, HttpServletRequest request) {
+    private void addRequestBody(EventMessage<Serializable> eventMessage, Class requestModel, HttpServletRequest request) {
         try {
             String bodyStream = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 
             if (!StringUtils.isEmpty(bodyStream)) {
-                List<? extends Serializable> bodyList = mappingUtils.convertFromJsonList(bodyStream, Serializable.class);
-                eventMessage.setPayload((Serializable) bodyList);
+                List<Serializable> bodyList = mappingUtils.convertFromJsonList(bodyStream, requestModel);
+                eventMessage.setPayload(bodyList);
             }
         } catch (JsonMappingException ex) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Received bad request: JSON body has syntax error.", ex);
@@ -104,9 +99,12 @@ class WebController {
                     eventMessage.getParameterValues());
         }
 
-        ApiEndpoint apiEndpoint = controllerUtility.findRequestEndpoint(request);
+        ApiEndpoint<?> apiEndpoint = controllerUtility.findRequestEndpoint(request);
 
         if (apiEndpoint != null) {
+            addRequestParameters(eventMessage, request);
+            addRequestBody(eventMessage, apiEndpoint.getRequestModel(), request);
+
             eventMessage.setEventType(controllerUtility.parseEventType(request.getMethod(), apiEndpoint.getRequestUrl()));
 
             eventMessage = eventPreProcessing(eventMessage);
@@ -147,10 +145,6 @@ class WebController {
                         response.getErrorMessage(),
                         new ResourceNotFoundException(""));
             }
-
-            return response;
-        } catch (UnsupportedEncodingException ex) {
-            throwBadRequestException(ex);
         } catch (ResponseStatusException ex) {
             throw ex;
         } catch (Exception ex) {

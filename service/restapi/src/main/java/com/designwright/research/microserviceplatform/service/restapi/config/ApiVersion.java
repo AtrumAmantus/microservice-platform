@@ -14,8 +14,8 @@ public class ApiVersion {
     private String version;
     private List<ApiResource> apiResources = new ArrayList<>();
 
-    Map<String, ApiEndpoint> getEndpointMap(String context) {
-        Map<String, ApiEndpoint> endpointMap = new HashMap<>();
+    Map<String, ApiEndpoint<?>> getEndpointMap(String context) {
+        Map<String, ApiEndpoint<?>> endpointMap = new HashMap<>();
 
         if (apiResources != null && !apiResources.isEmpty() && !StringUtils.isEmpty(version)) {
             for (ApiResource apiResource : apiResources) {

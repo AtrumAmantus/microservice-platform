@@ -14,7 +14,7 @@ public class WebApiConfiguration {
 
     private final WebApiProperties webApi;
 
-    public Map<String, ApiEndpoint> getEndpointMap() {
+    public Map<String, ApiEndpoint<?>> getEndpointMap() {
         if (webApi != null) {
             return webApi.getEndpointMap();
         }

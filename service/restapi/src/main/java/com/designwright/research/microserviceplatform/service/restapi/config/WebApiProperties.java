@@ -14,8 +14,8 @@ class WebApiProperties {
     @Setter
     private List<ApiContext> apiContexts = new ArrayList<>();
 
-    public Map<String, ApiEndpoint> getEndpointMap() {
-        Map<String, ApiEndpoint> endpointMap = new HashMap<>();
+    public Map<String, ApiEndpoint<?>> getEndpointMap() {
+        Map<String, ApiEndpoint<?>> endpointMap = new HashMap<>();
 
         if (apiContexts != null && !apiContexts.isEmpty()) {
             for (ApiContext apiContext : apiContexts) {
